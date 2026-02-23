@@ -17,96 +17,74 @@ API_KEY = st.secrets["GEMINI_API_KEY"]
 client = genai.Client(api_key=API_KEY)
 
 # =========================
-# THEME / CSS (Studio Dark)
+# THEME / CSS (Minimalist & Clean)
 # =========================
 st.markdown(
     """
 <style>
-/* --- Page background --- */
+/* Ana arka plan ve font ayarı */
 .stApp {
-  background: linear-gradient(180deg, #0B0F19 0%, #070A12 100%);
-  color: #E5E7EB;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background-color: #FFFFFF;
+    color: #1A1A1A;
 }
 
-/* --- Headings --- */
-h1, h2, h3 { letter-spacing: -0.02em; }
-
-/* --- Inputs / text areas --- */
-textarea, input {
-  background-color: #0F172A !important;
-  border: 1px solid #1F2937 !important;
-  color: #E5E7EB !important;
-  border-radius: 12px !important;
-}
-textarea:focus, input:focus {
-  border: 1px solid #8B5CF6 !important;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25) !important;
+/* Metin kutularını belirginleştir */
+.stTextArea textarea {
+    border: 1px solid #E0E0E0 !important;
+    border-radius: 8px !important;
+    background-color: #F9F9F9 !important;
+    color: #1A1A1A !important;
 }
 
-/* --- Buttons --- */
+/* Placeholder (silik yazı) rengi */
+.stTextArea textarea::placeholder {
+    color: #888888 !important;
+}
+
+/* Başlıkları sadeleştir */
+h1, h2, h3 {
+    color: #333333;
+    font-weight: 600;
+}
+
+/* Butonları modern ve sade yap */
 .stButton>button {
-  border-radius: 12px;
-  border: 1px solid #1F2937;
-  background: #111827;
-  color: #E5E7EB;
-  transition: 0.15s ease;
+    border-radius: 8px;
+    border: 1px solid #D1D5DB;
+    background-color: white;
+    transition: all 0.2s;
 }
+
 .stButton>button:hover {
-  border-color: #8B5CF6;
-  transform: translateY(-1px);
+    border-color: #4F46E5;
+    color: #4F46E5;
 }
 
-/* Primary button glow */
+/* Ana işlem butonu (Execute Task) */
 button[kind="primary"] {
-  background: linear-gradient(90deg, #7C3AED 0%, #8B5CF6 100%) !important;
-  border: none !important;
-  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.25);
-}
-button[kind="primary"]:hover {
-  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.35);
+    background-color: #4F46E5 !important;
+    color: white !important;
+    border: none !important;
 }
 
-/* --- Cards: Streamlit container(border=True) wrapper --- */
+/* Kart yapılarını basitleştir */
 div[data-testid="stVerticalBlockBorderWrapper"] {
-  background: rgba(17, 24, 39, 0.75);
-  border: 1px solid #1F2937 !important;
-  border-radius: 16px !important;
-  padding: 14px !important;
+    border: 1px solid #EDEDED !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    background-color: white !important;
 }
 
-/* --- Divider --- */
-hr {
-  border-color: #1F2937 !important;
-}
-
-/* --- Caption --- */
-.stCaption {
-  color: #9CA3AF !important;
-}
-
-/* --- Small badges --- */
-.badge {
-  display:inline-block;
-  background:#111827;
-  border:1px solid #1F2937;
-  padding:6px 10px;
-  border-radius:999px;
-  color:#E5E7EB;
-  font-size:12px;
-}
-.muted { color:#9CA3AF; }
-
-/* --- Info chips --- */
+/* Bilgi çipleri */
 .chip {
-  display:inline-block;
-  background:#0F172A;
-  border:1px solid #1F2937;
-  padding:6px 10px;
-  border-radius:999px;
-  color:#E5E7EB;
-  font-size:12px;
-  margin-right:6px;
+    display: inline-block;
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-right: 5px;
+    color: #374151;
 }
 </style>
 """,
@@ -391,3 +369,4 @@ with col_right:
 # =========================
 add_vertical_space(3)
 st.caption("Powered by Google Gemini 2.5 & Streamlit • Ultimate Studio UI")
+
